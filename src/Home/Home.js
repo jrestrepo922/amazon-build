@@ -1,8 +1,18 @@
 import React from 'react';
 import './Home.css';
 import Product from '../Product/Product'
+import productMaker from '../data';
 
 function Home() {
+    const products = productMaker().map((product) => {
+        const {id, title, image, price, rating, description} = product;
+
+        return <Product title={title} id={id} image={image} price={price} rating={rating} description={description} />
+    })
+    
+
+
+
     return (
         <div className="home">
             <div className="home__container">
@@ -13,18 +23,17 @@ function Home() {
                 />
             </div>
             <div className="home__row">
-                <Product/>
-                <Product/>
-                <Product/>
+                {products[0]}
+                {products[1]}
+                {products[2]}
             </div>
             <div className="home__row">
-                <Product/>
-                <Product/>
-                <Product/>
+                {products[3]}
+                {products[4]}
+                {products[5]}
             </div>
             <div className="home__row">
-                <Product/>
-
+                {products[6]}
             </div>
         </div>
     )
